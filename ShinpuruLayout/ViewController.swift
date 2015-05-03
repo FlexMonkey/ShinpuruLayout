@@ -12,45 +12,78 @@ class ViewController: UIViewController {
 
     let hGroupA = SLHGroup()
     let hGroupB = SLHGroup()
+    let hGroupC = SLHGroup()
+    let hGroupD = SLHGroup()
     
     let vGroup = SLVGroup()
+    
+    // For this demo, UILabels are orange
+    func createUILabel(text: String) -> UILabel
+    {
+        let label = UILabel()
+        label.layer.backgroundColor = UIColor.orangeColor().CGColor
+        label.textAlignment = NSTextAlignment.Center
+        label.text = text
+        
+        return label
+    }
+    
+    // For this demo, SLLabels are purple
+    func createSLLabel(text: String, percentage: CGFloat) -> SLLabel
+    {
+        let label = SLLabel()
+        label.layer.backgroundColor = UIColor.purpleColor().CGColor
+        label.textAlignment = NSTextAlignment.Center
+        label.text = text
+        label.percentage = percentage
+        return label
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        // a...
         for i: Int in 1 ... 10
         {
-            let btn = UIButton()
-            btn.backgroundColor = UIColor.grayColor()
-            btn.setTitle("A: \(i)", forState: UIControlState.Normal)
-            
-            hGroupA.children.append(btn)
+            hGroupA.children.append(createUILabel("idx: \(i)"))
         }
-        
-        
-        
-        for i: Int in 1 ... 5
+
+        // b...
+        for i: Int in [10, 20, 20, 40, 10]
         {
-            let btn = UIButton()
-            btn.backgroundColor = UIColor.grayColor()
-            btn.setTitle("B: \(i)", forState: UIControlState.Normal)
-            
-            hGroupB.children.append(btn)
+            hGroupB.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
+        }
+
+        // c...
+        for i: Int in [20, 15]
+        {
+            hGroupC.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
+        }
+        for i: Int in 1 ... 3
+        {
+            hGroupC.children.append(createUILabel("idx: \(i)"))
+        }
+        for i: Int in [25]
+        {
+            hGroupC.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
         }
         
-        hGroupA.margin = 1
-        hGroupB.margin = 1
-        vGroup.margin = 1
+        // d...
+        for i: Int in 1 ... 6
+        {
+            hGroupD.children.append(createUILabel("idx: \(i)"))
+        }
+        hGroupD.children.insert(createSLLabel("\(33)%", percentage: CGFloat(33)), atIndex: 4)
         
-        vGroup.children = [hGroupA, hGroupB]
+        vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD]
         
         view.addSubview(vGroup)
     }
 
     override func viewDidLayoutSubviews()
     {
-        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 60)
+        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 140)
     }
 }
 

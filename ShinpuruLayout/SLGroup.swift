@@ -5,6 +5,11 @@
 //  Created by Simon Gladman on 02/05/2015.
 //  Copyright (c) 2015 Simon Gladman. All rights reserved.
 //
+// TODO 
+//  Create suite of UI components that implement SLLayoutItem
+//  Support for alignment
+//  Explicit width / height 
+//  Spacer component
 
 import UIKit
 
@@ -13,13 +18,15 @@ class SLHGroup: SLGroup
 {
     override func layoutSubviews()
     {
-        let componentWidth = frame.width / CGFloat(children.count)
-        
+        var currentOriginX: CGFloat = 0
+
         for (index: Int, child: UIView) in enumerate(children)
         {
-            let childX = CGFloat(index) * componentWidth
+            let componentWidth: CGFloat = childPercentageSizes[index] / 100 * frame.width
             
-            child.frame = CGRect(x: childX, y: 0, width: componentWidth, height: frame.height).rectByInsetting(dx: margin / 2, dy: 0)
+            child.frame = CGRect(x: currentOriginX, y: 0, width: componentWidth, height: frame.height).rectByInsetting(dx: margin / 2, dy: 0)
+            
+            currentOriginX += componentWidth
         }
     }
 }
@@ -29,13 +36,15 @@ class SLVGroup: SLGroup
 {
     override func layoutSubviews()
     {
-        let componentHeight = frame.height / CGFloat(children.count)
+         var currentOriginY: CGFloat = 0
         
         for (index: Int, child: UIView) in enumerate(children)
         {
-            let childY = CGFloat(index) * componentHeight
+            let componentHeight: CGFloat = childPercentageSizes[index] / 100 * frame.height
             
-            child.frame = CGRect(x: 0, y: childY, width: frame.width, height: componentHeight).rectByInsetting(dx: 0, dy: margin / 2)
+            child.frame = CGRect(x: 0, y: currentOriginY, width: frame.width, height: componentHeight).rectByInsetting(dx: 0, dy: margin / 2)
+            
+            currentOriginY += componentHeight
         }
     }
 }
@@ -43,6 +52,9 @@ class SLVGroup: SLGroup
 /// Base Class
 class SLGroup: UIView
 {
+    private var totalPercentages: CGFloat = 0
+    private var childPercentageSizes = [CGFloat]()
+    
     var children: [UIView] = [UIView]()
     {
         didSet
@@ -51,11 +63,17 @@ class SLGroup: UIView
             
             children.map({ self.addSubview($0) })
             
+            totalPercentages = children.filter({ $0 is SLLayoutItem }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).percentage})
+            
+            let defaultComponentPercentage = (CGFloat(100) - totalPercentages) / CGFloat(children.filter({ !($0 is SLLayoutItem) }).count)
+
+            childPercentageSizes = children.map({ $0 is SLLayoutItem ? ($0 as! SLLayoutItem).percentage : defaultComponentPercentage })
+
             setNeedsLayout()
         }
     }
     
-    var margin: CGFloat = 0
+    var margin: CGFloat = 1
     {
         didSet
         {
