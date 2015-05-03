@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     // For this demo, SLLabels are purple
-    func createSLLabel(text: String, percentage: CGFloat) -> SLLabel
+    func createSLLabel(text: String, percentage: CGFloat?) -> SLLabel
     {
         let label = SLLabel()
         label.layer.backgroundColor = UIColor.purpleColor().CGColor
@@ -70,11 +70,17 @@ class ViewController: UIViewController {
         }
         
         // d...
-        for i: Int in 1 ... 6
+        for i: Int in 1 ... 4
         {
             hGroupD.children.append(createUILabel("idx: \(i)"))
         }
-        hGroupD.children.insert(createSLLabel("\(33)%", percentage: CGFloat(33)), atIndex: 4)
+        hGroupD.children.insert(createSLLabel("auto %", percentage: nil), atIndex: 2)
+        hGroupD.children.insert(createSLLabel("auto %", percentage: nil), atIndex: 4)
+        
+        hGroupA.percentage = 20
+        hGroupB.percentage = nil
+        hGroupC.percentage = 30
+        hGroupD.percentage = 10
         
         vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD]
         
@@ -83,7 +89,7 @@ class ViewController: UIViewController {
 
     override func viewDidLayoutSubviews()
     {
-        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 140)
+        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 250).rectByInsetting(dx: 20, dy: 20)
     }
 }
 
