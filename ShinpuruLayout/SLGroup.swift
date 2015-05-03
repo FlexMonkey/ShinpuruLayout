@@ -44,7 +44,7 @@ class SLVGroup: SLGroup
             
             child.frame = CGRect(x: 0, y: currentOriginY, width: frame.width, height: componentHeight).rectByInsetting(dx: 0, dy: margin / 2)
             
-            currentOriginY += componentHeight; println("\(componentHeight)  \(currentOriginY)")
+            currentOriginY += componentHeight
         }
     }
 }

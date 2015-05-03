@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         label.layer.backgroundColor = UIColor.purpleColor().CGColor
         label.textAlignment = NSTextAlignment.Center
         label.text = text
+        label.textColor = UIColor.whiteColor()
         label.percentage = percentage
         return label
     }
@@ -50,7 +51,8 @@ class ViewController: UIViewController {
         }
 
         // b...
-        for i: Int in [10, 20, 20, 40, 10]
+        hGroupB.children.append(createSLLabel("auto %", percentage: nil))
+        for i: Int in [15, 20, 40, 10]
         {
             hGroupB.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
         }
@@ -80,7 +82,7 @@ class ViewController: UIViewController {
         hGroupA.percentage = 20
         hGroupB.percentage = nil
         hGroupC.percentage = 30
-        hGroupD.percentage = 10
+        hGroupD.percentage = 15
         
         vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD]
         
