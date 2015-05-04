@@ -11,6 +11,7 @@ import UIKit
 class SLLabel: UILabel, SLLayoutItem
 {
     var percentageSize: CGFloat?
+    var explicitSize: CGFloat?
 }
 
 /// SLLayoutItem
@@ -21,4 +22,5 @@ protocol SLLayoutItem
     var percentageSize: CGFloat? {get set}
     
     /// If percentage is nil, optional explicit size allows the item's width or height to be set in points
+    var explicitSize: CGFloat? {get set}
 }

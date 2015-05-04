@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     let hGroupB = SLHGroup()
     let hGroupC = SLHGroup()
     let hGroupD = SLHGroup()
+    let hGroupE = SLHGroup()
     
     let vGroup = SLVGroup()
     
@@ -29,7 +30,7 @@ class ViewController: UIViewController {
     }
     
     // For this demo, SLLabels are purple
-    func createSLLabel(text: String, percentageSize: CGFloat?) -> SLLabel
+    func createSLLabel(text: String, percentageSize: CGFloat?, explicitSize: CGFloat? = nil) -> SLLabel
     {
         let label = SLLabel()
         label.layer.backgroundColor = UIColor.purpleColor().CGColor
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
         label.text = text
         label.textColor = UIColor.whiteColor()
         label.percentageSize = percentageSize
+        label.explicitSize = explicitSize
         return label
     }
     
@@ -79,19 +81,27 @@ class ViewController: UIViewController {
         hGroupD.children.insert(createSLLabel("auto %", percentageSize: nil), atIndex: 2)
         hGroupD.children.insert(createSLLabel("auto %", percentageSize: nil), atIndex: 4)
         
+        // e...
+        hGroupE.addSubview(createSLLabel("100pt", percentageSize: nil, explicitSize: 100))
+        hGroupE.addSubview(createUILabel("auto %"))
+        hGroupE.addSubview(createSLLabel("200pt", percentageSize: nil, explicitSize: 200))
+        
         hGroupA.percentageSize = 20
         hGroupB.percentageSize = nil
         hGroupC.percentageSize = 30
         hGroupD.percentageSize = 15
+        hGroupE.explicitSize = 150
         
-        vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD]
+        // e...
+        
+        vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD, hGroupE]
         
         view.addSubview(vGroup)
     }
 
     override func viewDidLayoutSubviews()
     {
-        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 250).rectByInsetting(dx: 20, dy: 20)
+        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 400).rectByInsetting(dx: 20, dy: 20)
     }
 }
 

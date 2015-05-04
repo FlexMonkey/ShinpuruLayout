@@ -22,7 +22,8 @@ class SLHGroup: SLGroup
 
         for (index: Int, child: UIView) in enumerate(children)
         {
-            let componentWidth: CGFloat = childPercentageSizes[index] / 100 * frame.width
+            let percentageWidth = childPercentageSizes[index] / 100 * (frame.width - totalExplicitSize)
+            let componentWidth: CGFloat = hasExplicitSize(child) ? (child as! SLLayoutItem).explicitSize! : percentageWidth
             
             child.frame = CGRect(x: currentOriginX, y: 0, width: componentWidth, height: frame.height).rectByInsetting(dx: margin / 2, dy: 0)
             
@@ -40,7 +41,8 @@ class SLVGroup: SLGroup
         
         for (index: Int, child: UIView) in enumerate(children)
         {
-            let componentHeight: CGFloat = childPercentageSizes[index] / 100 * frame.height
+            let percentageHeight = childPercentageSizes[index] / 100 * (frame.height - totalExplicitSize)
+            let componentHeight: CGFloat = hasExplicitSize(child) ? (child as! SLLayoutItem).explicitSize! : percentageHeight
             
             child.frame = CGRect(x: 0, y: currentOriginY, width: frame.width, height: componentHeight).rectByInsetting(dx: 0, dy: margin / 2)
             
@@ -53,21 +55,31 @@ class SLVGroup: SLGroup
 class SLGroup: UIView, SLLayoutItem
 {
     var percentageSize: CGFloat?
+    var explicitSize: CGFloat?
     
     private var totalPercentages: CGFloat = 0
     private var childPercentageSizes = [CGFloat]()
     
+    private var totalExplicitSize: CGFloat = 0
+    
+    override func addSubview(view: UIView)
+    {
+        children.append(view)
+    }
+
     var children: [UIView] = [UIView]()
     {
         didSet
         {
             oldValue.map({ $0.removeFromSuperview() })
             
-            children.map({ self.addSubview($0) })
+            children.map({ super.addSubview($0) })
+            
+            totalExplicitSize = children.filter({ hasExplicitSize($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).explicitSize!});
             
             totalPercentages = children.filter({ hasPercentage($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).percentageSize!})
             
-            let defaultComponentPercentage = (CGFloat(100) - totalPercentages) / CGFloat(children.filter({ !hasPercentage($0) }).count)
+            let defaultComponentPercentage = (CGFloat(100) - totalPercentages) / CGFloat(children.filter({ !hasPercentage($0) && !hasExplicitSize($0) }).count)
 
             childPercentageSizes = children.map({ hasPercentage($0) ? ($0 as! SLLayoutItem).percentageSize! : defaultComponentPercentage })
 
@@ -82,6 +94,11 @@ class SLGroup: UIView, SLLayoutItem
             setNeedsLayout()
         }
     }
+}
+
+func hasExplicitSize(value: UIView) -> Bool
+{
+    return (value as? SLLayoutItem)?.explicitSize != nil && !hasPercentage(value)
 }
 
 func hasPercentage(value: UIView) -> Bool
