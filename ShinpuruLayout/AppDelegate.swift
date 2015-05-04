@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
+        application.statusBarStyle = UIStatusBarStyle.LightContent
+        
         let tabbar = UITabBarController()
         let icon = UIImage(named: "noun_19113_cc.png") // Icon created by Manav Dhiman from the Noun Project
         

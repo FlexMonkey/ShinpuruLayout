@@ -48,6 +48,8 @@ class ComplexGrid: UIViewController {
     {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.blackColor()
+        
         // a...
         for i: Int in 1 ... 10
         {
