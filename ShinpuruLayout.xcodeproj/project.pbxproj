@@ -18,6 +18,11 @@
 		BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */; };
 		BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */; };
 		BEB17C541AF75FE0003E7B76 /* AlignAndDistribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */; };
+		BEB17C561AF76534003E7B76 /* DepthOfField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C551AF76534003E7B76 /* DepthOfField.swift */; };
+		BEB17C591AF7657E003E7B76 /* DepthOfFieldViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C581AF7657E003E7B76 /* DepthOfFieldViewer.swift */; };
+		BEB17C5B1AF7659E003E7B76 /* LabelledSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C5A1AF7659E003E7B76 /* LabelledSegmentedControl.swift */; };
+		BEB17C5E1AF765D9003E7B76 /* checkerboard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEB17C5C1AF765D9003E7B76 /* checkerboard.jpg */; };
+		BEB17C5F1AF765D9003E7B76 /* grid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEB17C5D1AF765D9003E7B76 /* grid.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noun_19113_cc.png; sourceTree = "<group>"; };
 		BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftimageLayout.swift; sourceTree = "<group>"; };
 		BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignAndDistribute.swift; sourceTree = "<group>"; };
+		BEB17C551AF76534003E7B76 /* DepthOfField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthOfField.swift; sourceTree = "<group>"; };
+		BEB17C581AF7657E003E7B76 /* DepthOfFieldViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthOfFieldViewer.swift; sourceTree = "<group>"; };
+		BEB17C5A1AF7659E003E7B76 /* LabelledSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelledSegmentedControl.swift; sourceTree = "<group>"; };
+		BEB17C5C1AF765D9003E7B76 /* checkerboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = checkerboard.jpg; sourceTree = "<group>"; };
+		BEB17C5D1AF765D9003E7B76 /* grid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grid.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,8 @@
 		BEB17C4D1AF7381D003E7B76 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				BEB17C5C1AF765D9003E7B76 /* checkerboard.jpg */,
+				BEB17C5D1AF765D9003E7B76 /* grid.jpg */,
 				BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */,
 			);
 			name = assets;
@@ -144,11 +156,22 @@
 		BEB17C501AF73DE8003E7B76 /* demoViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BEB17C571AF76558003E7B76 /* depthOfFieldClasses */,
 				BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */,
 				BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */,
 				BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */,
+				BEB17C551AF76534003E7B76 /* DepthOfField.swift */,
 			);
 			name = demoViewControllers;
+			sourceTree = "<group>";
+		};
+		BEB17C571AF76558003E7B76 /* depthOfFieldClasses */ = {
+			isa = PBXGroup;
+			children = (
+				BEB17C581AF7657E003E7B76 /* DepthOfFieldViewer.swift */,
+				BEB17C5A1AF7659E003E7B76 /* LabelledSegmentedControl.swift */,
+			);
+			name = depthOfFieldClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +255,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB17B6B1AF4E3CC003E7B76 /* Main.storyboard in Resources */,
+				BEB17C5F1AF765D9003E7B76 /* grid.jpg in Resources */,
 				BEB17B701AF4E3CC003E7B76 /* LaunchScreen.xib in Resources */,
 				BEB17B6D1AF4E3CC003E7B76 /* Images.xcassets in Resources */,
+				BEB17C5E1AF765D9003E7B76 /* checkerboard.jpg in Resources */,
 				BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +280,9 @@
 				BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */,
 				BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */,
 				BEB17C541AF75FE0003E7B76 /* AlignAndDistribute.swift in Sources */,
+				BEB17C591AF7657E003E7B76 /* DepthOfFieldViewer.swift in Sources */,
+				BEB17C5B1AF7659E003E7B76 /* LabelledSegmentedControl.swift in Sources */,
+				BEB17C561AF76534003E7B76 /* DepthOfField.swift in Sources */,
 				BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */,
 				BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */,
 				BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */,

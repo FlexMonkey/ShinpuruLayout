@@ -35,8 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alignAndDistribute.tabBarItem.title = "Align & Distribute"
         alignAndDistribute.tabBarItem.image = icon
         
+        let depthOfFieldDemo = DepthOfField()
+        depthOfFieldDemo.tabBarItem.title = "Depth of Field Demo"
+        depthOfFieldDemo.tabBarItem.image = icon
         
-        tabbar.viewControllers = [softimageLayout, complexGrid, alignAndDistribute]
+        
+        tabbar.viewControllers = [complexGrid, softimageLayout, alignAndDistribute, depthOfFieldDemo]
         
         window?.backgroundColor = UIColor.whiteColor()
         
