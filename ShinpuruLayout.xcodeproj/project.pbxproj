@@ -17,6 +17,7 @@
 		BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B891AF5E0B8003E7B76 /* SLControls.swift */; };
 		BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */; };
 		BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */; };
+		BEB17C541AF75FE0003E7B76 /* AlignAndDistribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		BEB17B891AF5E0B8003E7B76 /* SLControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLControls.swift; sourceTree = "<group>"; };
 		BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noun_19113_cc.png; sourceTree = "<group>"; };
 		BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftimageLayout.swift; sourceTree = "<group>"; };
+		BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignAndDistribute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */,
 				BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */,
+				BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */,
 			);
 			name = demoViewControllers;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */,
 				BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */,
+				BEB17C541AF75FE0003E7B76 /* AlignAndDistribute.swift in Sources */,
 				BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */,
 				BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */,
 				BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */,

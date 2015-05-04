@@ -27,11 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         complexGrid.tabBarItem.title = "Complex Grid"
         complexGrid.tabBarItem.image = icon
 
-        let sotimageLayout = SoftimageLayout()
-        sotimageLayout.tabBarItem.title = "Softimage Layout"
-        sotimageLayout.tabBarItem.image = icon
+        let softimageLayout = SoftimageLayout()
+        softimageLayout.tabBarItem.title = "Softimage Layout"
+        softimageLayout.tabBarItem.image = icon
         
-        tabbar.viewControllers = [sotimageLayout, complexGrid]
+        let alignAndDistribute = AlignAndDistribute()
+        alignAndDistribute.tabBarItem.title = "Align & Distribute"
+        alignAndDistribute.tabBarItem.image = icon
+        
+        
+        tabbar.viewControllers = [softimageLayout, complexGrid, alignAndDistribute]
         
         window?.backgroundColor = UIColor.whiteColor()
         
