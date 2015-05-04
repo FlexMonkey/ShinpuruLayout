@@ -21,6 +21,18 @@ To begin a Shinpuru screen, create a top level container, for horizontal layout:
 
 ```let group = SLVGroup()```
 
+This top level group needs to be anchored to its superview's bounds:
+
+```
+override func viewDidLayoutSubviews()
+{
+    let top = topLayoutGuide.length
+    let bottom = bottomLayoutGuide.length
+        
+    vGroup.frame = CGRect(x: 0, y: top, width: view.frame.width, height: view.frame.height - top - bottom).rectByInsetting(dx: 10, dy: 10)
+}
+```
+
 Child elements can be added either though the group's ```children``` array:
 
 ```
