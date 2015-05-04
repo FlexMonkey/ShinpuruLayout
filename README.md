@@ -29,7 +29,7 @@ override func viewDidLayoutSubviews()
     let top = topLayoutGuide.length
     let bottom = bottomLayoutGuide.length
         
-    vGroup.frame = CGRect(x: 0, y: top, width: view.frame.width, height: view.frame.height - top - bottom).rectByInsetting(dx: 10, dy: 10)
+    group.frame = CGRect(x: 0, y: top, width: view.frame.width, height: view.frame.height - top - bottom).rectByInsetting(dx: 10, dy: 10)
 }
 ```
 
