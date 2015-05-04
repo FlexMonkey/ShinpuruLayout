@@ -22,13 +22,20 @@ class SoftimageLayout: UIViewController
         
         view.addSubview(mainGroup)
    
-        let centreHGroup = SLHGroup()
-        centreHGroup.margin = 5
+        mainGroup.children = [createTopToolbar(), createCentreGroup(), createBottomToolbar()]
+    }
+    
+    func createCentreGroup() -> SLHGroup
+    {
+        let group = SLHGroup()
+        group.margin = 5
+        
         let workSpace = UIView()
         workSpace.backgroundColor = UIColor.darkGrayColor()
-        centreHGroup.children = [createLeftToolbar(), workSpace, createRightToolbar()]
         
-        mainGroup.children = [createTopToolbar(), centreHGroup, createBottomToolbar()]
+        group.children = [createLeftToolbar(), workSpace, createRightToolbar()]
+        
+        return group
     }
     
     func createBottomToolbar() -> SLHGroup
