@@ -14,6 +14,31 @@ class SLLabel: UILabel, SLLayoutItem
     var explicitSize: CGFloat?
 }
 
+class SLButton: UIButton, SLLayoutItem
+{
+    var percentageSize: CGFloat?
+    var explicitSize: CGFloat?
+}
+
+class SLSpacer: UIView, SLLayoutItem
+{
+    var percentageSize: CGFloat?
+    var explicitSize: CGFloat?
+    
+    required init(percentageSize: CGFloat?, explicitSize: CGFloat?)
+    {
+        super.init(frame: CGRectZero)
+        
+        self.percentageSize = percentageSize
+        self.explicitSize = explicitSize
+    }
+    
+    required init(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+    }
+}
+
 /// SLLayoutItem
 protocol SLLayoutItem
 {

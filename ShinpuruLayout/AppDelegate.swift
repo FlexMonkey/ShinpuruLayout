@@ -19,13 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
         let tabbar = UITabBarController()
-        let icon = UIImage(named: "noun_19113_cc.png")
+        let icon = UIImage(named: "noun_19113_cc.png") // Icon created by Manav Dhiman from the Noun Project
         
         let complexGrid = ComplexGrid()
         complexGrid.tabBarItem.title = "Complex Grid"
         complexGrid.tabBarItem.image = icon
+
+        let sotimageLayout = SoftimageLayout()
+        sotimageLayout.tabBarItem.title = "Softimage Layout"
+        sotimageLayout.tabBarItem.image = icon
         
-        tabbar.viewControllers = [complexGrid]
+        tabbar.viewControllers = [sotimageLayout, complexGrid]
         
         window?.backgroundColor = UIColor.whiteColor()
         

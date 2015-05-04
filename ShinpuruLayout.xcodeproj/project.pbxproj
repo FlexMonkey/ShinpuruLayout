@@ -16,6 +16,7 @@
 		BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B871AF54164003E7B76 /* SLGroup.swift */; };
 		BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B891AF5E0B8003E7B76 /* SLControls.swift */; };
 		BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */; };
+		BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		BEB17B871AF54164003E7B76 /* SLGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLGroup.swift; sourceTree = "<group>"; };
 		BEB17B891AF5E0B8003E7B76 /* SLControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLControls.swift; sourceTree = "<group>"; };
 		BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noun_19113_cc.png; sourceTree = "<group>"; };
+		BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftimageLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +85,10 @@
 		BEB17B621AF4E3CC003E7B76 /* ShinpuruLayout */ = {
 			isa = PBXGroup;
 			children = (
+				BEB17C501AF73DE8003E7B76 /* demoViewControllers */,
 				BEB17C4D1AF7381D003E7B76 /* assets */,
 				BEB17B851AF540D1003E7B76 /* shinpuru */,
 				BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */,
-				BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */,
 				BEB17B691AF4E3CC003E7B76 /* Main.storyboard */,
 				BEB17B6C1AF4E3CC003E7B76 /* Images.xcassets */,
 				BEB17B6E1AF4E3CC003E7B76 /* LaunchScreen.xib */,
@@ -135,6 +137,15 @@
 				BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */,
 			);
 			name = assets;
+			sourceTree = "<group>";
+		};
+		BEB17C501AF73DE8003E7B76 /* demoViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */,
+				BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */,
+			);
+			name = demoViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */,
 				BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */,
 				BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */,
+				BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
