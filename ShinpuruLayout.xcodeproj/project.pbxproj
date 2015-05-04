@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */; };
-		BEB17B681AF4E3CC003E7B76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B671AF4E3CC003E7B76 /* ViewController.swift */; };
+		BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */; };
 		BEB17B6B1AF4E3CC003E7B76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB17B691AF4E3CC003E7B76 /* Main.storyboard */; };
 		BEB17B6D1AF4E3CC003E7B76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB17B6C1AF4E3CC003E7B76 /* Images.xcassets */; };
 		BEB17B701AF4E3CC003E7B76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEB17B6E1AF4E3CC003E7B76 /* LaunchScreen.xib */; };
 		BEB17B7C1AF4E3CC003E7B76 /* ShinpuruLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B7B1AF4E3CC003E7B76 /* ShinpuruLayoutTests.swift */; };
 		BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B871AF54164003E7B76 /* SLGroup.swift */; };
 		BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B891AF5E0B8003E7B76 /* SLControls.swift */; };
+		BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +32,7 @@
 		BEB17B601AF4E3CC003E7B76 /* ShinpuruLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShinpuruLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB17B641AF4E3CC003E7B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEB17B671AF4E3CC003E7B76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexGrid.swift; sourceTree = "<group>"; };
 		BEB17B6A1AF4E3CC003E7B76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEB17B6C1AF4E3CC003E7B76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BEB17B6F1AF4E3CC003E7B76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -40,6 +41,7 @@
 		BEB17B7B1AF4E3CC003E7B76 /* ShinpuruLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShinpuruLayoutTests.swift; sourceTree = "<group>"; };
 		BEB17B871AF54164003E7B76 /* SLGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLGroup.swift; sourceTree = "<group>"; };
 		BEB17B891AF5E0B8003E7B76 /* SLControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLControls.swift; sourceTree = "<group>"; };
+		BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noun_19113_cc.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +83,10 @@
 		BEB17B621AF4E3CC003E7B76 /* ShinpuruLayout */ = {
 			isa = PBXGroup;
 			children = (
+				BEB17C4D1AF7381D003E7B76 /* assets */,
 				BEB17B851AF540D1003E7B76 /* shinpuru */,
 				BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */,
-				BEB17B671AF4E3CC003E7B76 /* ViewController.swift */,
+				BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */,
 				BEB17B691AF4E3CC003E7B76 /* Main.storyboard */,
 				BEB17B6C1AF4E3CC003E7B76 /* Images.xcassets */,
 				BEB17B6E1AF4E3CC003E7B76 /* LaunchScreen.xib */,
@@ -124,6 +127,14 @@
 				BEB17B891AF5E0B8003E7B76 /* SLControls.swift */,
 			);
 			name = shinpuru;
+			sourceTree = "<group>";
+		};
+		BEB17C4D1AF7381D003E7B76 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				BEB17B6B1AF4E3CC003E7B76 /* Main.storyboard in Resources */,
 				BEB17B701AF4E3CC003E7B76 /* LaunchScreen.xib in Resources */,
 				BEB17B6D1AF4E3CC003E7B76 /* Images.xcassets in Resources */,
+				BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEB17B681AF4E3CC003E7B76 /* ViewController.swift in Sources */,
+				BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */,
 				BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */,
 				BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */,
 				BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */,

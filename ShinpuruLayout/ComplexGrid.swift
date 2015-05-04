@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ComplexGrid: UIViewController {
 
     let hGroupA = SLHGroup()
     let hGroupB = SLHGroup()
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         vGroupA.addSubview(createSLLabel("25pt", percentageSize: nil, explicitSize: 25))
         hGroupG.addSubview(vGroupA)
         
-        hGroupA.percentageSize = 20
+        hGroupA.explicitSize = 30
         hGroupB.percentageSize = nil
         hGroupC.percentageSize = 30
         hGroupD.percentageSize = 15
@@ -117,7 +117,10 @@ class ViewController: UIViewController {
 
     override func viewDidLayoutSubviews()
     {
-        vGroup.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height).rectByInsetting(dx: 50, dy: 50)
+        let top = topLayoutGuide.length
+        let bottom = bottomLayoutGuide.length
+        
+        vGroup.frame = CGRect(x: 0, y: top, width: view.frame.width, height: view.frame.height - top - bottom).rectByInsetting(dx: 10, dy: 10)
     }
 }
 
