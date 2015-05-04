@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     let hGroupC = SLHGroup()
     let hGroupD = SLHGroup()
     let hGroupE = SLHGroup()
+    let hGroupF = SLHGroup()
+    let hGroupG = SLHGroup()
     
     let vGroup = SLVGroup()
     
@@ -86,22 +88,36 @@ class ViewController: UIViewController {
         hGroupE.addSubview(createUILabel("auto %"))
         hGroupE.addSubview(createSLLabel("200pt", percentageSize: nil, explicitSize: 200))
         
+        // f...
+        hGroupF.addSubview(createSLLabel("250pt", percentageSize: nil, explicitSize: 250))
+        hGroupF.addSubview(createSLLabel("33%", percentageSize: 33))
+        hGroupF.addSubview(createUILabel("auto %"))
+        hGroupF.addSubview(createSLLabel("75pt", percentageSize: nil, explicitSize: 75))
+        
+        // g...
+        hGroupG.addSubview(createSLLabel("200pt", percentageSize: nil, explicitSize: 200))
+        let vGroupA = SLVGroup()
+        let hGroupGA = SLHGroup()
+        hGroupGA.children = [createSLLabel("100pt", percentageSize: nil, explicitSize: 100), createUILabel("auto %"), createSLLabel("auto %", percentageSize: nil)]
+        vGroupA.children = [createUILabel("auto %"), hGroupGA]
+        vGroupA.addSubview(createSLLabel("25pt", percentageSize: nil, explicitSize: 25))
+        hGroupG.addSubview(vGroupA)
+        
         hGroupA.percentageSize = 20
         hGroupB.percentageSize = nil
         hGroupC.percentageSize = 30
         hGroupD.percentageSize = 15
         hGroupE.explicitSize = 150
+        hGroupG.explicitSize = 200
         
-        // e...
-        
-        vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD, hGroupE]
+        vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD, hGroupE, hGroupF, hGroupG]
         
         view.addSubview(vGroup)
     }
 
     override func viewDidLayoutSubviews()
     {
-        vGroup.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 400).rectByInsetting(dx: 20, dy: 20)
+        vGroup.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height).rectByInsetting(dx: 50, dy: 50)
     }
 }
 
