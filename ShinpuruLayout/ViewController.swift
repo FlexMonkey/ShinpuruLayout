@@ -29,14 +29,14 @@ class ViewController: UIViewController {
     }
     
     // For this demo, SLLabels are purple
-    func createSLLabel(text: String, percentage: CGFloat?) -> SLLabel
+    func createSLLabel(text: String, percentageSize: CGFloat?) -> SLLabel
     {
         let label = SLLabel()
         label.layer.backgroundColor = UIColor.purpleColor().CGColor
         label.textAlignment = NSTextAlignment.Center
         label.text = text
         label.textColor = UIColor.whiteColor()
-        label.percentage = percentage
+        label.percentageSize = percentageSize
         return label
     }
     
@@ -51,16 +51,16 @@ class ViewController: UIViewController {
         }
 
         // b...
-        hGroupB.children.append(createSLLabel("auto %", percentage: nil))
+        hGroupB.children.append(createSLLabel("auto %", percentageSize: nil))
         for i: Int in [15, 20, 40, 10]
         {
-            hGroupB.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
+            hGroupB.children.append(createSLLabel("\(i)%", percentageSize: CGFloat(i)))
         }
 
         // c...
         for i: Int in [20, 15]
         {
-            hGroupC.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
+            hGroupC.children.append(createSLLabel("\(i)%", percentageSize: CGFloat(i)))
         }
         for i: Int in 1 ... 3
         {
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         }
         for i: Int in [25]
         {
-            hGroupC.children.append(createSLLabel("\(i)%", percentage: CGFloat(i)))
+            hGroupC.children.append(createSLLabel("\(i)%", percentageSize: CGFloat(i)))
         }
         
         // d...
@@ -76,13 +76,13 @@ class ViewController: UIViewController {
         {
             hGroupD.children.append(createUILabel("idx: \(i)"))
         }
-        hGroupD.children.insert(createSLLabel("auto %", percentage: nil), atIndex: 2)
-        hGroupD.children.insert(createSLLabel("auto %", percentage: nil), atIndex: 4)
+        hGroupD.children.insert(createSLLabel("auto %", percentageSize: nil), atIndex: 2)
+        hGroupD.children.insert(createSLLabel("auto %", percentageSize: nil), atIndex: 4)
         
-        hGroupA.percentage = 20
-        hGroupB.percentage = nil
-        hGroupC.percentage = 30
-        hGroupD.percentage = 15
+        hGroupA.percentageSize = 20
+        hGroupB.percentageSize = nil
+        hGroupC.percentageSize = 30
+        hGroupD.percentageSize = 15
         
         vGroup.children = [hGroupA, hGroupB, hGroupC, hGroupD]
         

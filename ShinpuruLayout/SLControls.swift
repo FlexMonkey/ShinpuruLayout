@@ -10,7 +10,7 @@ import UIKit
 
 class SLLabel: UILabel, SLLayoutItem
 {
-    var percentage: CGFloat?
+    var percentageSize: CGFloat?
 }
 
 /// SLLayoutItem
@@ -18,7 +18,7 @@ protocol SLLayoutItem
 {
     /// For items in an HGroup, the width as a percentage of the parent's width, for items in a VGroup, the height as a percentage of the parent's height
     /// If set to nil, Shinpuru Layout treats this like a standard UIView and automatically sets percentage itself
-    var percentage: CGFloat? {get set}
+    var percentageSize: CGFloat? {get set}
     
     /// If percentage is nil, optional explicit size allows the item's width or height to be set in points
 }
