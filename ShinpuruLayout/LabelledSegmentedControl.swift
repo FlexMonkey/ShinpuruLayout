@@ -13,6 +13,8 @@ class LabelledSegmentedControl: UIControl
     let labelWidget = UILabel()
     let segmentedControl: UISegmentedControl
     
+    let vGroup = SLVGroup()
+    
     required init(items: [AnyObject], label: String)
     {
         segmentedControl = UISegmentedControl(items: items)
@@ -31,8 +33,8 @@ class LabelledSegmentedControl: UIControl
     
     override func didMoveToSuperview()
     {
-        addSubview(labelWidget)
-        addSubview(segmentedControl)
+        addSubview(vGroup)
+        vGroup.children = [labelWidget, segmentedControl]
     }
     
     func segmentedControlChangeHandler()
@@ -41,7 +43,7 @@ class LabelledSegmentedControl: UIControl
     }
     
     override var enabled: Bool
-        {
+    {
         didSet
         {
             UIView.animateWithDuration(0.2, animations: {self.alpha = self.enabled ? 1 : 0.5})
@@ -49,7 +51,7 @@ class LabelledSegmentedControl: UIControl
     }
     
     var selectedSegmentIndex: Int
-        {
+    {
         set
         {
             segmentedControl.selectedSegmentIndex = newValue
@@ -61,7 +63,7 @@ class LabelledSegmentedControl: UIControl
     }
     
     var label: String = ""
-        {
+    {
         didSet
         {
             labelWidget.text = label
@@ -70,10 +72,7 @@ class LabelledSegmentedControl: UIControl
     
     override func layoutSubviews()
     {
-        let halfHeight = frame.height / 2
-        
-        labelWidget.frame = CGRect(x: 0, y: 0, width: frame.width, height: halfHeight)
-        segmentedControl.frame = CGRect(x: 0, y: halfHeight, width: frame.width, height: halfHeight)
+        vGroup.frame = bounds
     }
     
 }
