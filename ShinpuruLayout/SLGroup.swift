@@ -25,6 +25,8 @@ class SLHGroup: SLGroup
 {
     override func layoutSubviews()
     {
+        super.layoutSubviews()
+        
         var currentOriginX: CGFloat = 0
 
         for (index: Int, child: UIView) in enumerate(children)
@@ -45,7 +47,9 @@ class SLVGroup: SLGroup
 {
     override func layoutSubviews()
     {
-         var currentOriginY: CGFloat = 0
+        super.layoutSubviews()
+        
+        var currentOriginY: CGFloat = 0
         
         for (index: Int, child: UIView) in enumerate(children)
         {
@@ -81,18 +85,21 @@ class SLGroup: UIView, SLLayoutItem
         {
             oldValue.map({ $0.removeFromSuperview() })
             
-            children.map({ super.addSubview($0) })
-            
-            totalExplicitSize = children.filter({ hasExplicitSize($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).explicitSize!});
-            
-            totalPercentages = children.filter({ hasPercentage($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).percentageSize!})
-            
-            let defaultComponentPercentage = (CGFloat(100) - totalPercentages) / CGFloat(children.filter({ !hasPercentage($0) && !hasExplicitSize($0) }).count)
-
-            childPercentageSizes = children.map({ hasPercentage($0) ? ($0 as! SLLayoutItem).percentageSize! : defaultComponentPercentage })
-
             setNeedsLayout()
         }
+    }
+    
+    override func layoutSubviews()
+    {
+        children.map({ super.addSubview($0) })
+        
+        totalExplicitSize = children.filter({ hasExplicitSize($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).explicitSize!});
+        
+        totalPercentages = children.filter({ hasPercentage($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).percentageSize!})
+        
+        let defaultComponentPercentage = (CGFloat(100) - totalPercentages) / CGFloat(children.filter({ !hasPercentage($0) && !hasExplicitSize($0) }).count)
+        
+        childPercentageSizes = children.map({ hasPercentage($0) ? ($0 as! SLLayoutItem).percentageSize! : defaultComponentPercentage })
     }
     
     var margin: CGFloat = 1
