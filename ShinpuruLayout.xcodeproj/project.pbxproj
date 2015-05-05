@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EB24FF51AF88732001008F6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3EB24FF41AF88732001008F6 /* README.md */; };
 		BE0635131AF7D68A00AEEE38 /* dof_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635101AF7D68A00AEEE38 /* dof_screen.png */; };
 		BE0635141AF7D68A00AEEE38 /* complexGrid_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */; };
 		BE0635151AF7D68A00AEEE38 /* softimage_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635121AF7D68A00AEEE38 /* softimage_screen.png */; };
@@ -40,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3EB24FF41AF88732001008F6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BE0635101AF7D68A00AEEE38 /* dof_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dof_screen.png; sourceTree = "<group>"; };
 		BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complexGrid_screen.png; sourceTree = "<group>"; };
 		BE0635121AF7D68A00AEEE38 /* softimage_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = softimage_screen.png; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */,
 				BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */,
 				BEB17C551AF76534003E7B76 /* DepthOfField.swift */,
-				3EB24FF41AF88732001008F6 /* README.md */,
 			);
 			name = demoViewControllers;
 			sourceTree = "<group>";
@@ -294,7 +291,6 @@
 			files = (
 				BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */,
 				BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */,
-				3EB24FF51AF88732001008F6 /* README.md in Sources */,
 				BEB17C541AF75FE0003E7B76 /* AlignAndDistribute.swift in Sources */,
 				BEB17C591AF7657E003E7B76 /* DepthOfFieldViewer.swift in Sources */,
 				BEB17C5B1AF7659E003E7B76 /* LabelledSegmentedControl.swift in Sources */,
