@@ -14,6 +14,7 @@ class DepthOfFieldViewer: SCNView
     
     override func didMoveToSuperview()
     {
+        
         antialiasingMode = SCNAntialiasingMode.Multisampling4X
         
         backgroundColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1.0)

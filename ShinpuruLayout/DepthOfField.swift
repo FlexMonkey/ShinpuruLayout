@@ -51,8 +51,6 @@ class DepthOfField: UIViewController {
         initialiseWidget(fogEndWidget, selectedIndex: 0, targetGroup: lowerToolbar)
         initialiseWidget(fogDensityExponentWidget, selectedIndex: 1, targetGroup: lowerToolbar)
         
-        cameraPropertiesChange()
-        
         dofViewer.scene?.fogColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1.0)
         
         creditLabel.textColor = UIColor.blueColor()
@@ -60,6 +58,11 @@ class DepthOfField: UIViewController {
         creditLabel.numberOfLines = 2
         creditLabel.text = "Simon Gladman | May 2015\nflexmonkey.blogspot.co.uk"
         lowerToolbar.addSubview(creditLabel)
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        cameraPropertiesChange()
     }
     
     func initialiseWidget(widget: LabelledSegmentedControl, selectedIndex: Int, targetGroup: SLGroup)
