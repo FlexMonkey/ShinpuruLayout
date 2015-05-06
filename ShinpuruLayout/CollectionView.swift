@@ -78,6 +78,10 @@ class ColorCollectionViewCell: UICollectionViewCell
         let labelsVGroup = SLVGroup()
         labelsVGroup.children = [redLabel, greenLabel, blueLabel]
         
+        redLabel.textAlignment = NSTextAlignment.Right
+        greenLabel.textAlignment = NSTextAlignment.Right
+        blueLabel.textAlignment = NSTextAlignment.Right
+        
         mainGroup.children = [swatch, labelsVGroup]
         mainGroup.margin = 2
         
