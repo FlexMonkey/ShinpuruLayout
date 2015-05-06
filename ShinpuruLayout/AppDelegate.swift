@@ -39,8 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         depthOfFieldDemo.tabBarItem.title = "Depth of Field Demo"
         depthOfFieldDemo.tabBarItem.image = icon
         
+        let collectionViewDemo = CollectionView()
+        collectionViewDemo.tabBarItem.title = "UICollectionView Demo"
+        collectionViewDemo.tabBarItem.image = icon
         
-        tabbar.viewControllers = [complexGrid, softimageLayout, alignAndDistribute, depthOfFieldDemo]
+        
+        tabbar.viewControllers = [complexGrid, softimageLayout, alignAndDistribute, depthOfFieldDemo, collectionViewDemo]
         
         window?.backgroundColor = UIColor.whiteColor()
         

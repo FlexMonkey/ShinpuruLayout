@@ -10,6 +10,7 @@
 		BE0635131AF7D68A00AEEE38 /* dof_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635101AF7D68A00AEEE38 /* dof_screen.png */; };
 		BE0635141AF7D68A00AEEE38 /* complexGrid_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */; };
 		BE0635151AF7D68A00AEEE38 /* softimage_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635121AF7D68A00AEEE38 /* softimage_screen.png */; };
+		BE0635171AF9CBCE00AEEE38 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0635161AF9CBCD00AEEE38 /* CollectionView.swift */; };
 		BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */; };
 		BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */; };
 		BEB17B6B1AF4E3CC003E7B76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB17B691AF4E3CC003E7B76 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		BE0635101AF7D68A00AEEE38 /* dof_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dof_screen.png; sourceTree = "<group>"; };
 		BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complexGrid_screen.png; sourceTree = "<group>"; };
 		BE0635121AF7D68A00AEEE38 /* softimage_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = softimage_screen.png; sourceTree = "<group>"; };
+		BE0635161AF9CBCD00AEEE38 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		BEB17B601AF4E3CC003E7B76 /* ShinpuruLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShinpuruLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB17B641AF4E3CC003E7B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				BEB17C511AF73E1F003E7B76 /* SoftimageLayout.swift */,
 				BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */,
 				BEB17C551AF76534003E7B76 /* DepthOfField.swift */,
+				BE0635161AF9CBCD00AEEE38 /* CollectionView.swift */,
 			);
 			name = demoViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */,
+				BE0635171AF9CBCE00AEEE38 /* CollectionView.swift in Sources */,
 				BEB17B881AF54164003E7B76 /* SLGroup.swift in Sources */,
 				BEB17C541AF75FE0003E7B76 /* AlignAndDistribute.swift in Sources */,
 				BEB17C591AF7657E003E7B76 /* DepthOfFieldViewer.swift in Sources */,
