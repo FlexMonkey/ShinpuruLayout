@@ -29,11 +29,13 @@ class SLHGroup: SLGroup
 
         let childMetrics = SLGroup.calculateChildMetrics(children: children, childPercentageSizes: childPercentageSizes, availableSize: frame.width, totalExplicitSize: totalExplicitSize)
         
-        for (index: Int, child: UIView) in enumerate(children)
+        for child:(child: UIView, metric: ChildMetric) in zip(children, childMetrics)
         {
-            let childMetric = childMetrics[index]
-            child.frame = CGRect(x: childMetric.origin, y: 0, width: childMetric.size, height: frame.height).rectByInsetting(dx: margin / 2, dy: 0)
+            let childMetric = child.metric
+            child.child.frame = CGRect(x: childMetric.origin, y: 0, width: childMetric.size, height: frame.height).rectByInsetting(dx: margin / 2, dy: 0)
         }
+        
+
     }
 }
 
@@ -47,10 +49,10 @@ class SLVGroup: SLGroup
         
         let childMetrics = SLGroup.calculateChildMetrics(children: children, childPercentageSizes: childPercentageSizes, availableSize: frame.height, totalExplicitSize: totalExplicitSize)
         
-        for (index: Int, child: UIView) in enumerate(children)
+        for child:(child: UIView, metric: ChildMetric) in zip(children, childMetrics)
         {
-            let childMetric = childMetrics[index]
-            child.frame = CGRect(x: 0, y: childMetric.origin, width: frame.width, height: childMetric.size).rectByInsetting(dx: 0, dy: margin / 2)
+            let childMetric = child.metric
+            child.child.frame = CGRect(x: 0, y: childMetric.origin, width: frame.width, height: childMetric.size).rectByInsetting(dx: 0, dy: margin / 2)
         }
     }
 }
