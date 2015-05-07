@@ -120,19 +120,17 @@ class SLGroup: UIView, SLLayoutItem
     /// to fit within totalExplicitSize
     class func calculateChildMetrics(#children: [UIView], childPercentageSizes: [CGFloat], availableSize: CGFloat, totalExplicitSize: CGFloat) -> [ChildMetric]
     {
-        var returnArray = [ChildMetric]()
-        
         var currentOrigin: CGFloat = 0
-        
-        for (index: Int, child: UIView) in enumerate(children)
+
+        let returnArray = Array(zip(children, childPercentageSizes)).map
         {
-            
-            let percentageWidth = childPercentageSizes[index] / 100 * (availableSize - totalExplicitSize)
-            let componentWidth: CGFloat = SLGroup.hasExplicitSize(child) ? (child as! SLLayoutItem).explicitSize! : percentageWidth
-            
-            returnArray.append(ChildMetric(origin: currentOrigin, size: componentWidth));
-            
-            currentOrigin += componentWidth
+            (child, childPercentage) -> ChildMetric in
+                let percentageWidth = childPercentage / 100 * (availableSize - totalExplicitSize)
+                let componentWidth: CGFloat = SLGroup.hasExplicitSize(child) ? (child as! SLLayoutItem).explicitSize! : percentageWidth
+                let previous = currentOrigin
+                currentOrigin += componentWidth
+                
+                return ChildMetric(origin: previous, size: componentWidth)
         }
         
         return returnArray
