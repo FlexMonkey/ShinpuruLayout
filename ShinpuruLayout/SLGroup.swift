@@ -29,9 +29,10 @@ public class SLHGroup: SLGroup
 
         let childMetrics = SLGroup.calculateChildMetrics(children: children, childPercentageSizes: childPercentageSizes, availableSize: frame.width, totalExplicitSize: totalExplicitSize)
         
-        Array(zip(children, childMetrics)).map({
+        map(zip(children, childMetrics))
+        {
             $0.frame = CGRect(x: $1.origin, y: 0, width: $1.size, height: self.frame.height).rectByInsetting(dx: self.margin / 2, dy: 0)
-            })
+        }
     }
 }
 
@@ -45,9 +46,10 @@ public class SLVGroup: SLGroup
         
         let childMetrics = SLGroup.calculateChildMetrics(children: children, childPercentageSizes: childPercentageSizes, availableSize: frame.height, totalExplicitSize: totalExplicitSize)
         
-        Array(zip(children, childMetrics)).map({
+        map(zip(children, childMetrics))
+        {
             $0.frame = CGRect(x: 0, y: $1.origin, width: self.frame.width, height: $1.size).rectByInsetting(dx: 0, dy: self.margin / 2)
-            })
+        }
     }
 }
 
@@ -101,17 +103,15 @@ public class SLGroup: UIView, SLLayoutItem
     /// explicit sizes.
     class func calculateLayoutMetrics(children: [UIView]) -> LayoutMetrics
     {
-        var returnValue: LayoutMetrics
-        
-        returnValue.totalExplicitSize = children.filter({ self.hasExplicitSize($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).explicitSize!});
+        let totalExplicitSize = children.filter({ self.hasExplicitSize($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).explicitSize!});
         
         let totalPercentages = children.filter({ self.hasPercentage($0) }).reduce(CGFloat(0), combine: {$0 + ($1 as! SLLayoutItem).percentageSize!})
         
         let defaultComponentPercentage = (CGFloat(100) - totalPercentages) / CGFloat(children.filter({ !self.hasPercentage($0) && !self.hasExplicitSize($0) }).count)
         
-        returnValue.childPercentageSizes = children.map({ self.hasPercentage($0) ? ($0 as! SLLayoutItem).percentageSize! : defaultComponentPercentage })
+        let childPercentageSizes = children.map({ self.hasPercentage($0) ? ($0 as! SLLayoutItem).percentageSize! : defaultComponentPercentage })
         
-        return returnValue
+        return (childPercentageSizes, totalExplicitSize)
     }
     
     
@@ -122,14 +122,14 @@ public class SLGroup: UIView, SLLayoutItem
     {
         var currentOrigin: CGFloat = 0
 
-        let returnArray = Array(zip(children, childPercentageSizes)).map
+        let returnArray = map(zip(children, childPercentageSizes))
         {
             (child, childPercentage) -> ChildMetric in
                 let percentageWidth = childPercentage / 100 * (availableSize - totalExplicitSize)
                 let componentWidth: CGFloat = SLGroup.hasExplicitSize(child) ? (child as! SLLayoutItem).explicitSize! : percentageWidth
                 let previous = currentOrigin
                 currentOrigin += componentWidth
-                
+    
                 return ChildMetric(origin: previous, size: componentWidth)
         }
         
