@@ -63,13 +63,26 @@ public class SLGroup: UIView, SLLayoutItem
     
     typealias LayoutMetrics = (childPercentageSizes: [CGFloat], totalExplicitSize: CGFloat)
     typealias ChildMetric = (origin: CGFloat, size: CGFloat)
-        
+    
+    //--- hack to work in playground...
+    
+    required public init ()
+    {
+        super.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // ---
+    
     override public func addSubview(view: UIView)
     {
         children.append(view)
     }
     
-    var children: [UIView] = [UIView]()
+    public var children: [UIView] = [UIView]()
     {
         didSet
         {
@@ -89,7 +102,7 @@ public class SLGroup: UIView, SLLayoutItem
         childPercentageSizes = layoutMetrics.childPercentageSizes
     }
     
-    var margin: CGFloat = 1
+    public var margin: CGFloat = 1
     {
         didSet
         {
