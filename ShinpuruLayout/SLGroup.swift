@@ -20,6 +20,7 @@
 
 import UIKit
 
+
 /// Horizontal Group
 class SLHGroup: SLGroup
 {
@@ -52,7 +53,6 @@ class SLVGroup: SLGroup
         }
     }
 }
-
 
 /// Base Class
 class SLGroup: UIView, SLLayoutItem
@@ -89,6 +89,18 @@ class SLGroup: UIView, SLLayoutItem
         
         totalExplicitSize = layoutMetrics.totalExplicitSize
         childPercentageSizes = layoutMetrics.childPercentageSizes
+        
+        if newChild != nil
+        {
+            dispatch_async(dispatch_get_main_queue(), addStep)
+            
+        }
+        else if removeChildIndex != nil
+        {
+            dispatch_async(dispatch_get_main_queue(), removeStep)
+        }
+        
+        getNextAnimation()
     }
     
     var margin: CGFloat = 1
@@ -145,4 +157,135 @@ class SLGroup: UIView, SLLayoutItem
     {
         return (value as? SLLayoutItem)?.percentageSize != nil
     }
+
+    // MARK: Animated add and remove....
+    
+    typealias SLGroupAnimationQueueItem = (type: SLAnimationType, index: Int, child: UIView?)
+    
+    private var animationQueueItems: [SLGroupAnimationQueueItem] = [SLGroupAnimationQueueItem]()
+    
+    private  let addChildSpacer = SLSpacer(percentageSize: nil, explicitSize: 0)
+    private var newChildIndex: Int?
+    private var removeChildIndex: Int?
+    private var newChild: UIView?
+    private var newExplicitSize: CGFloat?
+    private var sizeStep: CGFloat?
+    private var animationRunning: Bool = false
+    
+    func getNextAnimation()
+    {
+        if let nextAnim = animationQueueItems.first
+        {
+            nextAnim.type == .Add
+                ? addChild(nextAnim.child!, atIndex: nextAnim.index)
+                : removeChild(atIndex: nextAnim.index)
+            
+            animationQueueItems.removeAtIndex(0)
+        }
+    }
+    
+    func removeChild(#atIndex: Int)
+    {
+        if animationRunning
+        {
+            animationQueueItems.append( SLGroupAnimationQueueItem(.Remove, atIndex, nil) )
+            return
+        }
+        
+        animationRunning = true
+        
+        let layoutMetrics = SLGroup.calculateLayoutMetrics(children)
+        totalExplicitSize = layoutMetrics.totalExplicitSize
+        childPercentageSizes = layoutMetrics.childPercentageSizes
+        let childMetrics = SLGroup.calculateChildMetrics(children: children, childPercentageSizes: childPercentageSizes, availableSize: frame.width, totalExplicitSize: totalExplicitSize)
+        
+        addChildSpacer.explicitSize = childMetrics[atIndex].size
+        removeChildIndex = atIndex
+        
+        sizeStep = addChildSpacer.explicitSize! / 20
+        
+        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {self.children[atIndex].alpha = 0}, completion: {(_) in self.children[atIndex] = self.addChildSpacer; self.removeStep()})
+    }
+    
+    func addChild(child: UIView, atIndex: Int)
+    {
+        if animationRunning
+        {
+            if let child = child as? SLLabel
+            {
+                println("adding child \(child.text)")
+            }
+            
+            if find(children, child) == nil
+            {
+                animationQueueItems.append( SLGroupAnimationQueueItem(.Add, atIndex, child) )
+            }
+            return
+        }
+        
+        animationRunning = true
+        
+        addChildSpacer.explicitSize = 0
+        children.insert(addChildSpacer, atIndex: atIndex)
+        newChildIndex = atIndex
+        newChild = child
+        newChild?.alpha = 0
+        
+        var candidateChildren = children
+        candidateChildren.insert(child, atIndex: atIndex)
+        let layoutMetrics = SLGroup.calculateLayoutMetrics(candidateChildren)
+        totalExplicitSize = layoutMetrics.totalExplicitSize
+        childPercentageSizes = layoutMetrics.childPercentageSizes
+        let childMetrics = SLGroup.calculateChildMetrics(children: candidateChildren, childPercentageSizes: childPercentageSizes, availableSize: frame.width, totalExplicitSize: totalExplicitSize)
+        
+        newExplicitSize = childMetrics[atIndex].size
+        sizeStep = newExplicitSize! / 20
+        
+        addStep()
+    }
+    
+    private func removeStep()
+    {
+        if removeChildIndex != nil && addChildSpacer.explicitSize > 0
+        {
+            addChildSpacer.explicitSize! = addChildSpacer.explicitSize! - sizeStep!
+            
+            setNeedsLayout()
+        }
+        else if removeChildIndex != nil
+        {
+            children.removeAtIndex(removeChildIndex!)
+            
+            removeChildIndex = nil
+            
+            animationRunning = false
+            
+            setNeedsLayout()
+        }
+    }
+    
+    private func addStep()
+    {
+        if newChild != nil && addChildSpacer.explicitSize < newExplicitSize
+        {
+            addChildSpacer.explicitSize! = addChildSpacer.explicitSize! + sizeStep!
+            
+            setNeedsLayout()
+        }
+        else if newChild != nil
+        {
+            children[newChildIndex!] = newChild!
+            
+            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {newChild?.alpha = 1}, completion: {(_) in self.animationRunning = false; self.setNeedsLayout()})
+            
+            newChild = nil
+        }
+    }
+    
+}
+
+enum SLAnimationType
+{
+    case Add
+    case Remove
 }

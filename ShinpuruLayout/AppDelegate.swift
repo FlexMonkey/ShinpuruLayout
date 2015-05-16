@@ -42,9 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let collectionViewDemo = CollectionView()
         collectionViewDemo.tabBarItem.title = "UICollectionView Demo"
         collectionViewDemo.tabBarItem.image = icon
+
+        let addAndRemoveDemo = AddAndRemove()
+        addAndRemoveDemo.tabBarItem.title = "Add & Remove Demo"
+        addAndRemoveDemo.tabBarItem.image = icon
         
-        
-        tabbar.viewControllers = [complexGrid, softimageLayout, alignAndDistribute, depthOfFieldDemo, collectionViewDemo]
+        tabbar.viewControllers = [addAndRemoveDemo, complexGrid, softimageLayout, alignAndDistribute, depthOfFieldDemo, collectionViewDemo]
         
         window?.backgroundColor = UIColor.whiteColor()
         
