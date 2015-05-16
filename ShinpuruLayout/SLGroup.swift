@@ -105,16 +105,16 @@ public class SLGroup: UIView, SLLayoutItem
         
         if newChild != nil
         {
-            dispatch_async(dispatch_get_main_queue(), addStep)
+            NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "addStep", userInfo: nil, repeats: false)
             
         }
         else if removeChildIndex != nil
         {
-            dispatch_async(dispatch_get_main_queue(), removeStep)
+            NSTimer.scheduledTimerWithTimeInterval(1 / 60, target: self, selector: "removeStep", userInfo: nil, repeats: false)
         }
         else
         {
-            dispatch_async(dispatch_get_main_queue(), getNextAnimation)
+            getNextAnimation()
         }
     }
     
@@ -180,8 +180,8 @@ public class SLGroup: UIView, SLLayoutItem
     private var animationQueueItems = [SLGroupAnimationQueueItem]()
     
     private let transientChildSpacer = SLSpacer(percentageSize: nil, explicitSize: 0)
-    private let animationSteps = CGFloat(20)
-    private let fadeDuration = 0.2
+    private let animationSteps = CGFloat(10)
+    private let fadeDuration = 0.25
     
     private var newChildIndex: Int?
     private var removeChildIndex: Int?
@@ -213,7 +213,7 @@ public class SLGroup: UIView, SLLayoutItem
         {
             return
         }
-        
+      
         animationRunning = true
         
         let availableSize = self is SLHGroup ? frame.width : frame.height
@@ -263,11 +263,11 @@ public class SLGroup: UIView, SLLayoutItem
         addStep()
     }
     
-    private func removeStep()
+    func removeStep()
     {
         if removeChildIndex != nil && transientChildSpacer.explicitSize > 0
         {
-            transientChildSpacer.explicitSize! = transientChildSpacer.explicitSize! - sizeStep!
+            transientChildSpacer.explicitSize! = max(transientChildSpacer.explicitSize! - sizeStep!, 0)
         }
         else if removeChildIndex != nil
         {
@@ -280,11 +280,11 @@ public class SLGroup: UIView, SLLayoutItem
         setNeedsLayout()
     }
     
-    private func addStep()
+    func addStep()
     {
         if newChild != nil && transientChildSpacer.explicitSize < newChildExplicitSize
         {
-            transientChildSpacer.explicitSize! = transientChildSpacer.explicitSize! + sizeStep!
+            transientChildSpacer.explicitSize! = min(transientChildSpacer.explicitSize! + sizeStep!, newChildExplicitSize!)
         }
         else if newChild != nil
         {

@@ -39,8 +39,8 @@ class AddAndRemove: UIViewController {
         horizontalRow.addClickHandler()
         horizontalRow.addClickHandler()
         
-        removeRowButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchDown)
-        addRowButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchDown)
+        removeRowButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchUpInside)
+        addRowButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     func addClickHandler()
@@ -76,8 +76,8 @@ class HorizontalRow: SLHGroup
         
         margin = 10
         
-        removeButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchDown)
-        addButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchDown)
+        removeButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchUpInside)
+        addButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchUpInside)
     }
 
     required init(coder aDecoder: NSCoder)
@@ -103,7 +103,7 @@ class HorizontalRow: SLHGroup
         let button = SLButton()
         button.setTitle(text, forState: UIControlState.Normal)
         
-        button.setTitleColor(UIColor.yellowColor(), forState: UIControlState.Highlighted)
+        button.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Highlighted)
         
         button.layer.cornerRadius = 3
         button.layer.backgroundColor = UIColor.darkGrayColor().CGColor
