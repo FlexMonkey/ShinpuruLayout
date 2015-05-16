@@ -99,8 +99,10 @@ public class SLGroup: UIView, SLLayoutItem
         {
             dispatch_async(dispatch_get_main_queue(), removeStep)
         }
-        
-        getNextAnimation()
+        else
+        {
+            getNextAnimation()
+        }
     }
     
     var margin: CGFloat = 1
@@ -211,12 +213,7 @@ public class SLGroup: UIView, SLLayoutItem
     {
         if animationRunning
         {
-            if let child = child as? SLLabel
-            {
-                println("adding child \(child.text)")
-            }
-            
-            if find(children, child) == nil
+            if animationQueueItems.filter({ $0.child == child }).count == 0
             {
                 animationQueueItems.append( SLGroupAnimationQueueItem(.Add, atIndex, child) )
             }
@@ -249,19 +246,16 @@ public class SLGroup: UIView, SLLayoutItem
         if removeChildIndex != nil && addChildSpacer.explicitSize > 0
         {
             addChildSpacer.explicitSize! = addChildSpacer.explicitSize! - sizeStep!
-            
-            setNeedsLayout()
         }
         else if removeChildIndex != nil
         {
             children.removeAtIndex(removeChildIndex!)
             
             removeChildIndex = nil
-            
             animationRunning = false
-            
-            setNeedsLayout()
         }
+        
+        setNeedsLayout()
     }
     
     private func addStep()
@@ -269,17 +263,18 @@ public class SLGroup: UIView, SLLayoutItem
         if newChild != nil && addChildSpacer.explicitSize < newExplicitSize
         {
             addChildSpacer.explicitSize! = addChildSpacer.explicitSize! + sizeStep!
-            
-            setNeedsLayout()
         }
         else if newChild != nil
         {
             children[newChildIndex!] = newChild!
             
-            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {newChild?.alpha = 1}, completion: {(_) in self.animationRunning = false; self.setNeedsLayout()})
+            UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {newChild?.alpha = 1}, completion: nil)
             
+            animationRunning = false
             newChild = nil
         }
+        
+        setNeedsLayout()
     }
     
 }

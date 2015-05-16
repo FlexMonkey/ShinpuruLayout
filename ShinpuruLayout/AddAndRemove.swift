@@ -40,20 +40,21 @@ class AddAndRemove: UIViewController {
 
     func removeHandler()
     {
-        dynamicGroup.removeChild(atIndex: 1)
-        dynamicGroup.removeChild(atIndex: 2)
+        dynamicGroup.removeChild(atIndex: 0)
+        dynamicGroup.removeChild(atIndex: 0)
+        dynamicGroup.removeChild(atIndex: 0)
     }
     
     var foo = 1
     
     func addHandler()
     {
-        for _ in 0 ... 10
+        for _ in 0 ... 2
         {
             let xyzzy = SLLabel()
             xyzzy.text = "\(foo++)"
             xyzzy.backgroundColor = UIColor.redColor()
-            dynamicGroup.addChild(xyzzy, atIndex: 0)
+            dynamicGroup.addChild(xyzzy, atIndex: 1)
         }
 
     }
