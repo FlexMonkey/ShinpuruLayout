@@ -10,8 +10,8 @@ import UIKit
 
 class AddAndRemove: UIViewController {
 
-    let mainGroup = SLVGroup()
-    let dynamicGroup = SLHGroup()
+    let mainGroup = SLHGroup()
+    let dynamicGroup = SLVGroup()
     
     override func viewDidLoad()
     {
