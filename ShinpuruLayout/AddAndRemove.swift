@@ -27,10 +27,7 @@ class AddAndRemove: UIViewController {
         toolbarGroup.margin = 10
         
         toolbarGroup.explicitSize = 40
-    }
-
-    override func viewDidAppear(animated: Bool)
-    {
+        
         mainGroup.addChild(toolbarGroup, atIndex: 0)
         mainGroup.addChild(rowsGroup, atIndex: 0)
         
@@ -45,7 +42,7 @@ class AddAndRemove: UIViewController {
         removeRowButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchDown)
         addRowButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchDown)
     }
-    
+
     func addClickHandler()
     {
         rowsGroup.addChild(HorizontalRow(), atIndex: 0)
@@ -105,6 +102,8 @@ class HorizontalRow: SLHGroup
     {
         let button = SLButton()
         button.setTitle(text, forState: UIControlState.Normal)
+        
+        button.setTitleColor(UIColor.yellowColor(), forState: UIControlState.Highlighted)
         
         button.layer.cornerRadius = 3
         button.layer.backgroundColor = UIColor.darkGrayColor().CGColor
