@@ -29,7 +29,7 @@ public class SLHGroup: SLGroup
         super.layoutSubviews()
 
         let childMetrics = SLGroup.calculateChildMetrics(children: children, childPercentageSizes: childPercentageSizes, availableSize: frame.width, totalExplicitSize: totalExplicitSize)
-        
+   
         map(zip(children, childMetrics))
         {
             $0.frame = CGRect(x: $1.origin, y: 0, width: $1.size, height: self.frame.height).rectByInsetting(dx: self.margin / 2, dy: 0)
@@ -65,7 +65,16 @@ public class SLGroup: UIView, SLLayoutItem
     
     typealias LayoutMetrics = (childPercentageSizes: [CGFloat], totalExplicitSize: CGFloat)
     typealias ChildMetric = (origin: CGFloat, size: CGFloat)
-        
+    
+    required public init ()
+    {
+        super.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override public func addSubview(view: UIView)
     {
         children.append(view)
@@ -77,6 +86,10 @@ public class SLGroup: UIView, SLLayoutItem
         {
             oldValue.map({ $0.removeFromSuperview() })
             
+            if self is SLHGroup
+            {
+            println("set children \(oldValue.count)  \(children.count)")
+            }
             setNeedsLayout()
         }
     }
@@ -243,7 +256,7 @@ public class SLGroup: UIView, SLLayoutItem
         candidateChildren.insert(child, atIndex: targetIndex)
         let layoutMetrics = SLGroup.calculateLayoutMetrics(candidateChildren)
         let childMetrics = SLGroup.calculateChildMetrics(children: candidateChildren, childPercentageSizes: layoutMetrics.childPercentageSizes, availableSize: availableSize, totalExplicitSize: layoutMetrics.totalExplicitSize)
-        
+ 
         newChildExplicitSize = childMetrics[targetIndex].size
         sizeStep = newChildExplicitSize! / animationSteps
         

@@ -10,66 +10,110 @@ import UIKit
 
 class AddAndRemove: UIViewController {
 
-    let mainGroup = SLHGroup()
-    let dynamicGroup = SLVGroup()
+    let mainGroup = SLVGroup()
+    let rowsGroup = SLVGroup()
+    let toolbarGroup = SLHGroup()
+    
+    let removeRowButton = HorizontalRow.borderedButton("Remove Row", explicitSize: 200)
+    let addRowButton = HorizontalRow.borderedButton("Add Row", explicitSize: 200)
     
     override func viewDidLoad()
     {
-        view.backgroundColor = UIColor.grayColor()
-        
-        mainGroup.frame = CGRect(x: 200, y: 200, width: 500, height: 200)
-        
-        let buttonsGroup = SLHGroup()
-        
-        let addButton = UIButton()
-        addButton.addTarget(self, action: "addHandler", forControlEvents: UIControlEvents.TouchDown)
-        addButton.setTitle("Add", forState: UIControlState.Normal)
-        
-        let removeButton = UIButton()
-        removeButton.addTarget(self, action: "removeHandler", forControlEvents: UIControlEvents.TouchDown)
-        removeButton.setTitle("Remove", forState: UIControlState.Normal)
-        
-        buttonsGroup.children = [addButton, removeButton]
-        
-        dynamicGroup.children = [createSLLabel("AAA"), createSLLabel("BBB")]
-        
-        mainGroup.children = [dynamicGroup, buttonsGroup]
-        
+        view.backgroundColor = UIColor.blackColor()
         view.addSubview(mainGroup)
+        
+        mainGroup.margin = 10
+        rowsGroup.margin = 10
+        toolbarGroup.margin = 10
+        
+        toolbarGroup.explicitSize = 40
     }
 
-    func removeHandler()
+    override func viewDidAppear(animated: Bool)
     {
-        dynamicGroup.removeChild(atIndex: 0)
-        dynamicGroup.removeChild(atIndex: 0)
-        dynamicGroup.removeChild(atIndex: 0)
+        mainGroup.addChild(toolbarGroup, atIndex: 0)
+        mainGroup.addChild(rowsGroup, atIndex: 0)
+        
+        toolbarGroup.addChild(removeRowButton, atIndex: 0)
+        toolbarGroup.addChild(addRowButton, atIndex: 0)
+        
+        let horizontalRow = HorizontalRow()
+        rowsGroup.addChild(horizontalRow, atIndex: 0)
+        horizontalRow.addClickHandler()
+        horizontalRow.addClickHandler()
+        
+        removeRowButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchDown)
+        addRowButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchDown)
     }
     
-    var foo = 1
-    
-    func addHandler()
+    func addClickHandler()
     {
-        for _ in 0 ... 2
-        {
-            let xyzzy = SLLabel()
-            
-            xyzzy.text = "\(foo++)"
-            xyzzy.backgroundColor = UIColor.redColor()
-            dynamicGroup.addChild(xyzzy, atIndex: 1)
-        }
+        rowsGroup.addChild(HorizontalRow(), atIndex: 0)
+    }
+    
+    func removeClickHandler()
+    {
+        rowsGroup.removeChild(atIndex: 0)
+    }
+    
+    override func viewDidLayoutSubviews()
+    {
+        let top = topLayoutGuide.length
+        let bottom = bottomLayoutGuide.length
+        
+        mainGroup.frame = CGRect(x: 0, y: top, width: view.frame.width, height: view.frame.height - top - bottom).rectByInsetting(dx: 5, dy: 0)
+    }
+    
+}
 
-    }
+class HorizontalRow: SLHGroup
+{
+    let removeButton = HorizontalRow.borderedButton("Remove")
+    let addButton = HorizontalRow.borderedButton("Add")
     
-    func createSLLabel(text: String, percentageSize: CGFloat? = nil, explicitSize: CGFloat? = nil) -> SLLabel
+    required init()
     {
-        let label = SLLabel()
-        label.layer.backgroundColor = UIColor.purpleColor().CGColor
-        label.textAlignment = NSTextAlignment.Center
-        label.text = text
-        label.textColor = UIColor.whiteColor()
-        label.percentageSize = percentageSize
-        label.explicitSize = nil
-        return label
+        super.init()
+        
+        children = [addButton, removeButton]
+        
+        margin = 10
+        
+        removeButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchDown)
+        addButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchDown)
+    }
+
+    required init(coder aDecoder: NSCoder)
+    {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func addClickHandler()
+    {
+        let box = UIView()
+        box.backgroundColor = UIColor.yellowColor()
+        
+        addChild(box, atIndex: 2)
     }
     
+    func removeClickHandler()
+    {
+        removeChild(atIndex: 2)
+    }
+    
+    class func borderedButton(text: String, explicitSize: CGFloat = 100) -> SLButton
+    {
+        let button = SLButton()
+        button.setTitle(text, forState: UIControlState.Normal)
+        
+        button.layer.cornerRadius = 3
+        button.layer.backgroundColor = UIColor.darkGrayColor().CGColor
+        button.layer.borderColor = UIColor.lightGrayColor().CGColor
+        button.layer.borderWidth = 1
+        
+        button.explicitSize = explicitSize
+        
+        return button
+    }
+
 }
