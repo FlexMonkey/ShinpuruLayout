@@ -55,15 +55,25 @@ You can subclass ```UIView``` based components and have them implement ```SLLayo
 * ```percentageSize``` - defines the percentage width or height of the ```SLLayoutItem```
 * ```explicitSize``` - ignored if ```percentageSize``` is not ```nil```, but allows an absolute size in points for the ```SLLayoutItem```
 
+#Animation
+
+![/ShinpuruLayout/AnimatedShinpuru.gif](/ShinpuruLayout/AnimatedShinpuru.gif)
+
+Shinpuru allows for child components to be added and removed with animation. The  [`AddAndRemove`](/ShinpuruLayout/AddAndRemove.swift) class demonstrates this. `SLGroup` supports two methods for animation:
+
+* `addChild(child: UIView, atIndex: Int)` - adds a child at a given index
+* `removeChild(#atIndex: Int)` - removes a child at a given index
+
 #Examples
 
-This project ships with five demonstrations:
+This project ships with six demonstrations:
 
-* ```ComplexGrid``` - this was the file I used during build and test. The code is a bit messy, but it shows how a ludicrously complex grid can be built from a hierarchy of Shinpuru Layout groups
-* ```SoftimageLayout``` - a layout inspired by the venerable Softimage
-* ```AlignAndDistribute``` - a simple screen demonstrating left, centre and right align, along with evenly distributing components across the width of a container.
-* ```DepthOfField``` - my SceneKit depth of field demonstration updated to use Shinpuru for its layout.
-* ```CollectionView``` - laying out the contents of a ```UICollectionViewCell``` with Shinpuru
+* [`ComplexGrid`](/ShinpuruLayout/ComplexGrid.swift) - this was the file I used during build and test. The code is a bit messy, but it shows how a ludicrously complex grid can be built from a hierarchy of Shinpuru Layout groups
+* [`SoftimageLayout`](/ShinpuruLayout/SoftimageLayout.swift) - a layout inspired by the venerable Softimage
+* [`AlignAndDistribute`](/ShinpuruLayout/AlignAndDistribute.swift) - a simple screen demonstrating left, centre and right align, along with evenly distributing components across the width of a container.
+* [`DepthOfField`](/ShinpuruLayout/DepthOfField.swift) - my SceneKit depth of field demonstration updated to use Shinpuru for its layout.
+* [`CollectionView`](/ShinpuruLayout/CollectionView.swift) - laying out the contents of a ```UICollectionViewCell``` with Shinpuru
+* [`AddAndRemove`](/ShinpuruLayout/AddAndRemove.swift) - demonstrates dynamic layout with animation. The screen contains 'Add Row' and 'Remove Row' which add and remove rows at index zero. In turn, each row contains and and remove buttons which add and remove `UIView` instances with a yellow background at index two of the row (indexes zero and one contain the buttons)
 
 #Further Information 
 
