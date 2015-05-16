@@ -52,6 +52,7 @@ class AddAndRemove: UIViewController {
         for _ in 0 ... 2
         {
             let xyzzy = SLLabel()
+            
             xyzzy.text = "\(foo++)"
             xyzzy.backgroundColor = UIColor.redColor()
             dynamicGroup.addChild(xyzzy, atIndex: 1)

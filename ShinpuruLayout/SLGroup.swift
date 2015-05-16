@@ -193,6 +193,10 @@ public class SLGroup: UIView, SLLayoutItem
             animationQueueItems.append( SLGroupAnimationQueueItem(.Remove, atIndex, nil) )
             return
         }
+        else if atIndex >= children.count
+        {
+            return
+        }
         
         animationRunning = true
         
@@ -222,20 +226,22 @@ public class SLGroup: UIView, SLLayoutItem
         
         animationRunning = true
         
+        let targetIndex = min(children.count, atIndex)
+        
         addChildSpacer.explicitSize = 0
-        children.insert(addChildSpacer, atIndex: atIndex)
-        newChildIndex = atIndex
+        children.insert(addChildSpacer, atIndex: targetIndex)
+        newChildIndex = targetIndex
         newChild = child
         newChild?.alpha = 0
         
         var candidateChildren = children
-        candidateChildren.insert(child, atIndex: atIndex)
+        candidateChildren.insert(child, atIndex: targetIndex)
         let layoutMetrics = SLGroup.calculateLayoutMetrics(candidateChildren)
         totalExplicitSize = layoutMetrics.totalExplicitSize
         childPercentageSizes = layoutMetrics.childPercentageSizes
         let childMetrics = SLGroup.calculateChildMetrics(children: candidateChildren, childPercentageSizes: childPercentageSizes, availableSize: frame.width, totalExplicitSize: totalExplicitSize)
         
-        newExplicitSize = childMetrics[atIndex].size
+        newExplicitSize = childMetrics[targetIndex].size
         sizeStep = newExplicitSize! / 20
         
         addStep()
