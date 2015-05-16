@@ -30,9 +30,11 @@ class SoftimageLayout: UIViewController
         let group = SLHGroup()
         group.margin = 5
         
-        let workSpace = UIView()
+        let workSpace = SLImageView()
         workSpace.backgroundColor = UIColor.darkGrayColor()
-        
+        workSpace.image = UIImage(named: "teapot.jpg")
+        workSpace.contentMode = UIViewContentMode.ScaleAspectFit
+    
         group.children = [createLeftToolbar(), workSpace, createRightToolbar()]
         
         return group
