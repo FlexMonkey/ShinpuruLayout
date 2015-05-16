@@ -66,6 +66,7 @@
 		BEB17C5A1AF7659E003E7B76 /* LabelledSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelledSegmentedControl.swift; sourceTree = "<group>"; };
 		BEB17C5C1AF765D9003E7B76 /* checkerboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = checkerboard.jpg; sourceTree = "<group>"; };
 		BEB17C5D1AF765D9003E7B76 /* grid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grid.jpg; sourceTree = "<group>"; };
+		BECCC1481B045AF400C783D3 /* ShinpuruPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ShinpuruPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +150,7 @@
 			children = (
 				BEB17B871AF54164003E7B76 /* SLGroup.swift */,
 				BEB17B891AF5E0B8003E7B76 /* SLControls.swift */,
+				BECCC1481B045AF400C783D3 /* ShinpuruPlayground.playground */,
 			);
 			name = shinpuru;
 			sourceTree = "<group>";

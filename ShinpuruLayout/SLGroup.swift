@@ -22,9 +22,9 @@ import UIKit
 
 
 /// Horizontal Group
-class SLHGroup: SLGroup
+public class SLHGroup: SLGroup
 {
-    override func layoutSubviews()
+    override public func layoutSubviews()
     {
         super.layoutSubviews()
 
@@ -39,9 +39,9 @@ class SLHGroup: SLGroup
 
 
 /// Vertical Group
-class SLVGroup: SLGroup
+public class SLVGroup: SLGroup
 {
-    override func layoutSubviews()
+    override public func layoutSubviews()
     {
         super.layoutSubviews()
         
@@ -55,18 +55,18 @@ class SLVGroup: SLGroup
 }
 
 /// Base Class
-class SLGroup: UIView, SLLayoutItem
+public class SLGroup: UIView, SLLayoutItem
 {
-    var percentageSize: CGFloat?
-    var explicitSize: CGFloat?
+    public var percentageSize: CGFloat?
+    public var explicitSize: CGFloat?
     
     private var childPercentageSizes = [CGFloat]()
     private var totalExplicitSize: CGFloat = 0
     
     typealias LayoutMetrics = (childPercentageSizes: [CGFloat], totalExplicitSize: CGFloat)
     typealias ChildMetric = (origin: CGFloat, size: CGFloat)
-    
-    override func addSubview(view: UIView)
+        
+    override public func addSubview(view: UIView)
     {
         children.append(view)
     }
@@ -81,7 +81,7 @@ class SLGroup: UIView, SLLayoutItem
         }
     }
     
-    override func layoutSubviews()
+    override public func layoutSubviews()
     {
         children.map({ super.addSubview($0) })
         
