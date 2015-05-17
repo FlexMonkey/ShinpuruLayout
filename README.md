@@ -73,7 +73,7 @@ This project ships with six demonstrations:
 * [`AlignAndDistribute`](/ShinpuruLayout/AlignAndDistribute.swift) - a simple screen demonstrating left, centre and right align, along with evenly distributing components across the width of a container.
 * [`DepthOfField`](/ShinpuruLayout/DepthOfField.swift) - my SceneKit depth of field demonstration updated to use Shinpuru for its layout.
 * [`CollectionView`](/ShinpuruLayout/CollectionView.swift) - laying out the contents of a ```UICollectionViewCell``` with Shinpuru
-* [`AddAndRemove`](/ShinpuruLayout/AddAndRemove.swift) - demonstrates dynamic layout with animation. The screen contains 'Add Row' and 'Remove Row' which add and remove rows at index zero. In turn, each row contains and and remove buttons which add and remove `UIView` instances with a yellow background at index two of the row (indexes zero and one contain the buttons)
+* [`AddAndRemove`](/ShinpuruLayout/AddAndRemove.swift) - demonstrates dynamic layout with animation. The screen contains 'Add Row' and 'Remove Row' which add and remove rows at index zero. In turn, each row contains add and remove buttons which add and remove `UIView` instances with a yellow background at index two of the row (indexes zero and one contain the buttons)
 
 #Further Information 
 
