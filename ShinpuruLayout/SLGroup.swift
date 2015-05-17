@@ -85,11 +85,7 @@ public class SLGroup: UIView, SLLayoutItem
         didSet
         {
             oldValue.map({ $0.removeFromSuperview() })
-            
-            if self is SLHGroup
-            {
-            println("set children \(oldValue.count)  \(children.count)")
-            }
+
             setNeedsLayout()
         }
     }
@@ -184,9 +180,11 @@ public class SLGroup: UIView, SLLayoutItem
     private let fadeDuration = 0.25
     
     private var newChildIndex: Int?
-    private var removeChildIndex: Int?
     private var newChild: UIView?
     private var newChildExplicitSize: CGFloat?
+    
+    private var removeChildIndex: Int?
+
     private var sizeStep: CGFloat?
     private var animationRunning: Bool = false
     

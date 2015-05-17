@@ -37,7 +37,6 @@ class AddAndRemove: UIViewController {
         let horizontalRow = HorizontalRow()
         rowsGroup.addChild(horizontalRow, atIndex: 0)
         horizontalRow.addClickHandler()
-        horizontalRow.addClickHandler()
         
         removeRowButton.addTarget(self, action: "removeClickHandler", forControlEvents: UIControlEvents.TouchUpInside)
         addRowButton.addTarget(self, action: "addClickHandler", forControlEvents: UIControlEvents.TouchUpInside)
