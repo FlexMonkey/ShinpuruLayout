@@ -32,6 +32,12 @@ public class SLButton: UIButton, SLLayoutItem
     public var explicitSize: CGFloat?
 }
 
+public class SLImageView: UIImageView, SLLayoutItem
+{
+    public var percentageSize: CGFloat?
+    public var explicitSize: CGFloat?
+}
+
 public class SLSpacer: UIView, SLLayoutItem
 {
     public var percentageSize: CGFloat?

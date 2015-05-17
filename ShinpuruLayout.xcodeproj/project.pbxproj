@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E15E3721B03221F0071BB0D /* AddAndRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15E3711B03221F0071BB0D /* AddAndRemove.swift */; };
 		BE0635131AF7D68A00AEEE38 /* dof_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635101AF7D68A00AEEE38 /* dof_screen.png */; };
 		BE0635141AF7D68A00AEEE38 /* complexGrid_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */; };
-		BE0635151AF7D68A00AEEE38 /* softimage_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE0635121AF7D68A00AEEE38 /* softimage_screen.png */; };
 		BE0635171AF9CBCE00AEEE38 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0635161AF9CBCD00AEEE38 /* CollectionView.swift */; };
+		BE07AFA11B075EFD00442E22 /* AnimatedShinpuru.gif in Resources */ = {isa = PBXBuildFile; fileRef = BE07AFA01B075EFD00442E22 /* AnimatedShinpuru.gif */; };
+		BE07AFA31B076D6000442E22 /* teapot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE07AFA21B076D6000442E22 /* teapot.jpg */; };
+		BE07AFA51B07721800442E22 /* softimage_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = BE07AFA41B07721800442E22 /* softimage_screen.png */; };
 		BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */; };
 		BEB17B681AF4E3CC003E7B76 /* ComplexGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB17B671AF4E3CC003E7B76 /* ComplexGrid.swift */; };
 		BEB17B6B1AF4E3CC003E7B76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB17B691AF4E3CC003E7B76 /* Main.storyboard */; };
@@ -40,10 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E15E3711B03221F0071BB0D /* AddAndRemove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAndRemove.swift; sourceTree = "<group>"; };
 		BE0635101AF7D68A00AEEE38 /* dof_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dof_screen.png; sourceTree = "<group>"; };
 		BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complexGrid_screen.png; sourceTree = "<group>"; };
-		BE0635121AF7D68A00AEEE38 /* softimage_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = softimage_screen.png; sourceTree = "<group>"; };
 		BE0635161AF9CBCD00AEEE38 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		BE07AFA01B075EFD00442E22 /* AnimatedShinpuru.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedShinpuru.gif; sourceTree = "<group>"; };
+		BE07AFA21B076D6000442E22 /* teapot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teapot.jpg; sourceTree = "<group>"; };
+		BE07AFA41B07721800442E22 /* softimage_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = softimage_screen.png; sourceTree = "<group>"; };
 		BEB17B601AF4E3CC003E7B76 /* ShinpuruLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShinpuruLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB17B641AF4E3CC003E7B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEB17B651AF4E3CC003E7B76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,9 +162,11 @@
 		BEB17C4D1AF7381D003E7B76 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				BE07AFA41B07721800442E22 /* softimage_screen.png */,
+				BE07AFA21B076D6000442E22 /* teapot.jpg */,
+				BE07AFA01B075EFD00442E22 /* AnimatedShinpuru.gif */,
 				BE0635101AF7D68A00AEEE38 /* dof_screen.png */,
 				BE0635111AF7D68A00AEEE38 /* complexGrid_screen.png */,
-				BE0635121AF7D68A00AEEE38 /* softimage_screen.png */,
 				BEB17C5C1AF765D9003E7B76 /* checkerboard.jpg */,
 				BEB17C5D1AF765D9003E7B76 /* grid.jpg */,
 				BEB17C4E1AF73830003E7B76 /* noun_19113_cc.png */,
@@ -175,6 +183,7 @@
 				BEB17C531AF75FE0003E7B76 /* AlignAndDistribute.swift */,
 				BEB17C551AF76534003E7B76 /* DepthOfField.swift */,
 				BE0635161AF9CBCD00AEEE38 /* CollectionView.swift */,
+				3E15E3711B03221F0071BB0D /* AddAndRemove.swift */,
 			);
 			name = demoViewControllers;
 			sourceTree = "<group>";
@@ -270,13 +279,15 @@
 			files = (
 				BEB17B6B1AF4E3CC003E7B76 /* Main.storyboard in Resources */,
 				BE0635131AF7D68A00AEEE38 /* dof_screen.png in Resources */,
+				BE07AFA31B076D6000442E22 /* teapot.jpg in Resources */,
 				BEB17C5F1AF765D9003E7B76 /* grid.jpg in Resources */,
+				BE07AFA51B07721800442E22 /* softimage_screen.png in Resources */,
 				BEB17B701AF4E3CC003E7B76 /* LaunchScreen.xib in Resources */,
-				BE0635151AF7D68A00AEEE38 /* softimage_screen.png in Resources */,
 				BEB17B6D1AF4E3CC003E7B76 /* Images.xcassets in Resources */,
 				BEB17C5E1AF765D9003E7B76 /* checkerboard.jpg in Resources */,
 				BE0635141AF7D68A00AEEE38 /* complexGrid_screen.png in Resources */,
 				BEB17C4F1AF73830003E7B76 /* noun_19113_cc.png in Resources */,
+				BE07AFA11B075EFD00442E22 /* AnimatedShinpuru.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +315,7 @@
 				BEB17B8A1AF5E0B8003E7B76 /* SLControls.swift in Sources */,
 				BEB17B661AF4E3CC003E7B76 /* AppDelegate.swift in Sources */,
 				BEB17C521AF73E1F003E7B76 /* SoftimageLayout.swift in Sources */,
+				3E15E3721B03221F0071BB0D /* AddAndRemove.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +447,7 @@
 				INFOPLIST_FILE = ShinpuruLayout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -445,6 +458,7 @@
 				INFOPLIST_FILE = ShinpuruLayout/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
