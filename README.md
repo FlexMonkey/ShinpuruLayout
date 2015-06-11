@@ -7,6 +7,10 @@ Simple Layout in Swift using HGroups &amp; VGroups
 
 Shinpuru Layout allows developers to layout user interface elements using horizontal and vertical groups. Items in groups can be sized in absolute points or relative percentages and groups may be nested.
 
+#`UIStackView`
+
+If you're using Swift 2, [`UIStackView`](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIStackView_Class_Reference/index.html#//apple_ref/c/tdef/UIStackViewDistribution) does horizontal and vertical group based layout a million times better, so I suggest you use that rather than Shinpuru Layout. 
+
 #Installation
 
 To install Shinpuru Layout for use in your own project, simply copy SLControls.swift and SLGroup.swift
